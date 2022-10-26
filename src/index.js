@@ -4,7 +4,11 @@
  * @param {string} string
  * @returns {string}
  */
-export const replaceZAndVFromString = (string) => {};
+export const replaceZAndVFromString = (string) => {
+    let firstString = string.toLowerCase();
+    let result = firstString.replaceAll('z', '*').replaceAll('v', '*');
+    return result;
+};
 
 /**
  * Функция должна принять 3 аргумента и все строки. Мы передаем строку,
@@ -16,7 +20,9 @@ export const replaceZAndVFromString = (string) => {};
  * @param {string} newWord
  * @returns {string}
  */
-export const changeWord = (string, word, newWord) => {};
+export const changeWord = (string, word, newWord) => {
+    return string.replace(word, newWord);
+};
 
 /**
  * Должна вернуть строку(1 аргумент) на обрезанную по длине(2 аргумент, число)
@@ -24,7 +30,9 @@ export const changeWord = (string, word, newWord) => {};
  * @param {number} length
  * @returns {string}
  */
-export const truncate = (string, length) => {};
+export const truncate = (string, length) => {
+    return string.substring(0, length);
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -37,7 +45,17 @@ export const truncate = (string, length) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbols = (string, symbol) => {};
+export const quantityOfSymbols = (string, symbol) => {
+    let stringToLowCase = string.toLowerCase();
+    let symbolToLowCase = symbol.toLowerCase();
+    let result = 0;
+    for (let x = 0; x <= stringToLowCase.length; x++) {
+        if (stringToLowCase[x] === symbolToLowCase) {
+            result++;
+        }
+    }
+    return result;
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -54,4 +72,17 @@ export const quantityOfSymbols = (string, symbol) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbolsWithIndexOf = (string, symbol) => {};
+export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
+    let x = 0;
+    let count = 0;
+    while (true) {
+        let index = string.toLowerCase().indexOf(symbol.toLowerCase(), count);
+        if (index >= 0) {
+            count = index + 1;
+            x++;
+        } else if (index === -1) {
+            break;
+        }
+    }
+    return x;
+};
