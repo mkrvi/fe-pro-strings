@@ -5,10 +5,7 @@
  * @returns {string}
  */
 export const replaceZAndVFromString = (string) => {
-    let firstString = string.toLowerCase();
-    let changes = firstString.replaceAll('z', '*').replaceAll('v', '*');
-    let result = `${changes[0].toUpperCase()}${changes.slice(1)}`
-    return result;
+    return string.replaceAll('z', '*').replaceAll('v', '*');
 };
 
 /**
